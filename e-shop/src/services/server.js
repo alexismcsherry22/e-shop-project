@@ -1,5 +1,5 @@
 import firestore from "../firebase";
-import { fetchProducts } from "../App";
+import products from "./products";
 // reference the objects that holds the products
 
 // record is the object that contains the data to be send to the DB
@@ -18,7 +18,7 @@ export const seedProducts = async () => {
     // Stopping execution of function if DB is not empty
     if (!data.empty) return;
 
-    const promises = fetchProducts.map(async (product) => {
+    const promises = products.map(async (product) => {
         return await collectionRef.add(product);
     });
 

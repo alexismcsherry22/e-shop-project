@@ -12,29 +12,9 @@ import styles from "./App.module.scss";
 import Nav from "./components/Nav";
 import Home from "./pages/Home";
 import Store from "./components/Store";
-
-export const fetchProducts = async () => {
-    try {
-        const promises = [];
-
-        promises.push(fetch("https://fakestoreapi.com/products"));
-
-        const responses = await Promise.all(promises);
-        const jsonResponses = responses.map((response) => response.json());
-        const data = await Promise.all(jsonResponses);
-
-        console.log(data);
-        return data;
-    } catch {
-        throw new Error("Failed request");
-    }
-};
+import Cart from "./components/Cart";
 
 const App = () => {
-    useEffect(() => {
-        fetchProducts();
-        seedProducts();
-    });
     const [products, setProducts] = useState([]);
 
     const getData = async () => {
@@ -42,7 +22,7 @@ const App = () => {
         setProducts(data);
     };
 
-    const handleChange = async (newRecord) => {
+    const handleUpdate = async (newRecord) => {
         const { id, ...record } = newRecord;
         await updateProducts(id, record);
         getData();
@@ -53,13 +33,28 @@ const App = () => {
         await deleteProduct(id);
         getData();
     };
+
+    useEffect(() => {
+        getData();
+    }, []);
+
     return (
         <SearchProvider>
             <BrowserRouter>
                 <Nav />
                 <Routes>
                     <Route path="/" element={<Home />} />
-                    <Route path="/store" element={<Store />} />
+                    <Route
+                        path="/store"
+                        element={
+                            <Store
+                                products={products}
+                                onUpdate={handleUpdate}
+                                onDelete={handleDelete}
+                            />
+                        }
+                    />
+                    <Route path="/cart" element={<Cart />} />
                 </Routes>
             </BrowserRouter>
         </SearchProvider>

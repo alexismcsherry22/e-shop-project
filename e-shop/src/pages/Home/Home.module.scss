@@ -18,16 +18,20 @@
         background-color: rgb(214, 255, 255);
         border: 2px solid black;
 
-        margin-top: 10%;
+        width: 1500px;
+        height: 200px;
         padding: 2%;
-        width: 600px;
+
+        &__Position {
+            margin-top: 10%;
+        }
     }
     &__Button:hover {
         color: white;
         background-color: rgb(255, 179, 179);
         cursor: pointer;
     }
-    &__button:active {
+    &__Button:active {
         color: red;
         background-color: white;
     }

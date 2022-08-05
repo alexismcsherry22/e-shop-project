@@ -13,9 +13,12 @@ const Home = () => {
       <div className={styles.Home__Para}>
         <p>Check out the products we offer on the Store Page</p>
       </div>
-      <button className={styles.Home__Button} onClick={seedProducts}>
+      <div className={styles.Home__Button__Position}>
+        <NavLink className={styles.Home__Button} to="/store">
         Go to the Store
-      </button> 
+      </NavLink>
+      </div>
+      
       {/* <NavLink
         className={styles.Home__Button}
         onClick={seedProducts}
