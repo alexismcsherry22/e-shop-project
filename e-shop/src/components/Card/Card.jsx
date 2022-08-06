@@ -1,6 +1,8 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import styles from "./Card.module.scss";
+import { NavLink } from 'react-router-dom';
+
 
 const Card = ({ product, onUpdate, onDelete }) => {
   const [stock, setStock] = useState(product.rating.count);
@@ -24,8 +26,7 @@ const Card = ({ product, onUpdate, onDelete }) => {
   return (
     <div className={styles.Card}>
       <img className={styles.Card__Image} src={product.image}></img>
-      <h6 className={styles.Card__Title}>{product.title}</h6>
-      {/* Passing the rest of these values into the product unique page by clicking on the image/title */}
+      <NavLink className={styles.Card__Title} to={`${product.id}`}>{product.title}</NavLink>
     </div>
   )
 }

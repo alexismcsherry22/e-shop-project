@@ -13,6 +13,7 @@ import Nav from "./components/Nav";
 import Home from "./pages/Home";
 import Store from "./components/Store";
 import Cart from "./components/Cart";
+import ViewCard from "./container/ViewCard";
 
 const App = () => {
     const [products, setProducts] = useState([]);
@@ -54,6 +55,20 @@ const App = () => {
                             />
                         }
                     />
+                    {products.map((product) => {
+                        return (
+                            <Route
+                                path="/store/:productId"
+                                element={
+                                    <ViewCard
+                                        key={product.id}
+                                        product={product}
+                                    />
+                                }
+                            />
+                        );
+                    })}
+                    {/* <Route path="/store/:productId" element={<ViewCard />} /> */}
                     <Route path="/cart" element={<Cart />} />
                 </Routes>
             </BrowserRouter>
