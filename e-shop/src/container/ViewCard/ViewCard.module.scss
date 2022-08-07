@@ -1,0 +1,47 @@
+.ViewCard {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    &__Image {
+        margin: 5px;
+        height: 300px;
+    }
+    &__favourited_true {
+        background-color: green;
+        color: white;
+        cursor: pointer;
+    }
+    &__favourited_false {
+        background-color: red;
+        color: white;
+        cursor: pointer;
+    }
+    &__Title {
+        margin-left: 5px;
+        font-size: 20px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+    &__Para {
+        margin-left: 5px;
+        margin-top: 2px;
+        font-family: Arial, Helvetica, sans-serif;
+        width: 500px;
+    }
+    &__Button {
+        background-color: white;
+        border: 2px solid purple;
+        font-weight: bold;
+        font-size: 16px;
+        padding: 4px;
+        cursor: pointer;
+    }
+    &__Button:hover {
+        background-color: black;
+        color: white;
+    }
+    &__Button:active {
+        background-color: black;
+        color: purple;
+    }
+}

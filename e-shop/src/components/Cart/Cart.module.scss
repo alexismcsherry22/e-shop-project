@@ -1,0 +1,40 @@
+.Header {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
+}
+
+.Cart {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border: 3px solid black;
+    background-color: white;
+    margin: 5px;
+    padding: 5px;
+    &__Image {
+        height: 100px;
+    }
+    &__Title {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+    &__Para {
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    &__Button {
+        background-color: white;
+        border: 2px solid purple;
+        font-weight: bold;
+        font-size: 16px;
+        padding: 4px;
+        cursor: pointer;
+    }
+    &__Button:hover {
+        background-color: black;
+        color: white;
+    }
+    &__Button:active {
+        background-color: black;
+        color: purple;
+    }
+}

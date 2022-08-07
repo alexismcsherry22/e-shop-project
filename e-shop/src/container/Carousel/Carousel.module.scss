@@ -1,0 +1,28 @@
+.Carousel {
+    overflow: hidden;
+    &__item {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        height: 300px;
+        background-color: purple;
+        color: white;
+    }
+    &__inner {
+        white-space: nowrap;
+        transition: transform 0.3s;
+    }
+    &__indicators {
+        display: flex;
+        justify-content: center;
+
+        &__button {
+            margin: 5px;
+            background-color: white;
+            &_active {
+                background-color: purple;
+                color: white;
+            }
+        }
+    }
+}

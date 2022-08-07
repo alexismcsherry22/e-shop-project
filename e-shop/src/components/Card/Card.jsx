@@ -1,34 +1,27 @@
-import { useEffect } from "react";
-import { useState } from "react";
 import styles from "./Card.module.scss";
-import { NavLink } from 'react-router-dom';
+import { NavLink } from "react-router-dom";
+import { useContext } from "react";
+import { SearchContext } from "../../context/SearchContext";
 
+const Card = ({ product }) => {
+    // const [context, setContext] = useContext(ProductContext);
 
-const Card = ({ product, onUpdate, onDelete }) => {
-  const [stock, setStock] = useState(product.rating.count);
+    // const handleClick = () => {
+    //     setContext(product);
+    // };
 
-  const handleStock = () => {
-    if (stock <= 0) {
-      onDelete(product.id);
-      // or preferably say "out of stock"
-    } else {
-      setStock(stock - 1);
-    }
-  }
-
-  useEffect(() => {
-    onUpdate({
-      ...product,
-      count: stock,
-    });
-  }, [stock])
-
-  return (
-    <div className={styles.Card}>
-      <img className={styles.Card__Image} src={product.image}></img>
-      <NavLink className={styles.Card__Title} to={`${product.id}`}>{product.title}</NavLink>
-    </div>
-  )
-}
+    return (
+        <div className={styles.Card}>
+            <img className={styles.Card__Image} src={product.image}></img>
+            <NavLink
+                className={styles.Card__Title}
+                to={`${product.id}`}
+                //onClick={handleClick}
+            >
+                {product.title}
+            </NavLink>
+        </div>
+    );
+};
 
 export default Card;

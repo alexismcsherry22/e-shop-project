@@ -47,15 +47,9 @@ const App = () => {
                     <Route path="/" element={<Home />} />
                     <Route
                         path="/store"
-                        element={
-                            <Store
-                                products={products}
-                                onUpdate={handleUpdate}
-                                onDelete={handleDelete}
-                            />
-                        }
+                        element={<Store products={products} />}
                     />
-                    {products.map((product) => {
+                    {products.map((product, index) => {
                         return (
                             <Route
                                 path="/store/:productId"
@@ -63,6 +57,8 @@ const App = () => {
                                     <ViewCard
                                         key={product.id}
                                         product={product}
+                                        onUpdate={handleUpdate}
+                                        onDelete={handleDelete}
                                     />
                                 }
                             />

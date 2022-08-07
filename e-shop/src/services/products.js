@@ -11,6 +11,7 @@ const products = [
             rate: 3.9,
             count: 120,
         },
+        favourited: false,
     },
     {
         id: 2,
@@ -24,6 +25,7 @@ const products = [
             rate: 4.1,
             count: 259,
         },
+        favourited: false,
     },
     {
         id: 3,
@@ -37,6 +39,7 @@ const products = [
             rate: 4.7,
             count: 500,
         },
+        favourited: false,
     },
     {
         id: 4,
@@ -50,6 +53,7 @@ const products = [
             rate: 2.1,
             count: 430,
         },
+        favourited: false,
     },
     {
         id: 5,
@@ -63,6 +67,7 @@ const products = [
             rate: 4.6,
             count: 400,
         },
+        favourited: false,
     },
     {
         id: 6,
@@ -76,6 +81,7 @@ const products = [
             rate: 3.9,
             count: 70,
         },
+        favourited: false,
     },
     {
         id: 7,
@@ -89,6 +95,7 @@ const products = [
             rate: 3,
             count: 400,
         },
+        favourited: false,
     },
     {
         id: 8,
@@ -102,6 +109,7 @@ const products = [
             rate: 1.9,
             count: 100,
         },
+        favourited: false,
     },
     {
         id: 9,
@@ -115,6 +123,7 @@ const products = [
             rate: 3.3,
             count: 203,
         },
+        favourited: false,
     },
     {
         id: 10,
@@ -128,6 +137,7 @@ const products = [
             rate: 2.9,
             count: 470,
         },
+        favourited: false,
     },
     {
         id: 11,
@@ -141,6 +151,7 @@ const products = [
             rate: 4.8,
             count: 319,
         },
+        favourited: false,
     },
     {
         id: 12,
@@ -154,6 +165,7 @@ const products = [
             rate: 4.8,
             count: 400,
         },
+        favourited: false,
     },
     {
         id: 13,
@@ -167,6 +179,7 @@ const products = [
             rate: 2.9,
             count: 250,
         },
+        favourited: false,
     },
     {
         id: 14,
@@ -180,6 +193,7 @@ const products = [
             rate: 2.2,
             count: 140,
         },
+        favourited: false,
     },
     {
         id: 15,
@@ -193,6 +207,7 @@ const products = [
             rate: 2.6,
             count: 235,
         },
+        favourited: false,
     },
     {
         id: 16,
@@ -206,6 +221,7 @@ const products = [
             rate: 2.9,
             count: 340,
         },
+        favourited: false,
     },
     {
         id: 17,
@@ -219,6 +235,7 @@ const products = [
             rate: 3.8,
             count: 679,
         },
+        favourited: false,
     },
     {
         id: 18,
@@ -232,6 +249,7 @@ const products = [
             rate: 4.7,
             count: 130,
         },
+        favourited: false,
     },
     {
         id: 19,
@@ -245,6 +263,7 @@ const products = [
             rate: 4.5,
             count: 146,
         },
+        favourited: false,
     },
     {
         id: 20,
@@ -258,6 +277,7 @@ const products = [
             rate: 3.6,
             count: 145,
         },
+        favourited: false,
     },
 ];
 

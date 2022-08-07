@@ -1,8 +1,14 @@
 .Store {
     &__CardGrid {
         display: grid;
-        grid-template-columns: auto auto auto auto auto auto;
+        grid-template-columns: auto auto auto auto auto;
         justify-content: center;
         flex-wrap: wrap;
+    }
+    &__Carousel {
+        margin-top: 5px;
+        &__Image {
+            height: 280px;
+        }
     }
 }
