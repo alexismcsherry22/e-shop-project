@@ -3,6 +3,8 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { deleteCartItem, getCart, updateCart } from "../../services/server";
 import styles from "./Cart.module.scss";
+import Quantity from "../Quantity";
+import CartCard from "../../container/CartCard/CartCard";
 
 const Cart = () => {
     const [cartItems, setCartItems] = useState([]);
@@ -34,20 +36,12 @@ const Cart = () => {
             </h2>
             {cartItems.map((item) => {
                 return (
-                    <div className={styles.Cart}>
-                        <img
-                            className={styles.Cart__Image}
-                            src={item.image}
-                        ></img>
-                        <h3 className={styles.Cart__Title}>{item.title}</h3>
-                        <p className={styles.Cart__Para}>${item.price}</p>
-                        <button
-                            className={styles.Cart__Button}
-                            onClick={handleDelete(item.id)}
-                        >
-                            Remove Item
-                        </button>
-                    </div>
+                    <CartCard
+                        key={item.id}
+                        item={item}
+                        onChange={handleUpdate}
+                        onDelete={handleDelete}
+                    />
                 );
             })}
         </div>

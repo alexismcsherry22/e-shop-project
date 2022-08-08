@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useState } from "react";
-import { addToCart, getProductById, getProducts } from "../../services/server";
+import { addToCart, getProducts } from "../../services/server";
 import styles from "./ViewCard.module.scss";
 
 const ViewCard = ({ product, onDelete, onUpdate }) => {
@@ -10,7 +10,7 @@ const ViewCard = ({ product, onDelete, onUpdate }) => {
 
     const handleStock = () => {
         if (stock <= 0) {
-            onDelete(product.id);
+            setStock("Out of Stock");
             // or preferably say "out of stock"
         } else {
             setStock(stock - 1);
@@ -28,7 +28,6 @@ const ViewCard = ({ product, onDelete, onUpdate }) => {
             favourited: favourite,
         });
     }, [stock, favourite]);
-    console.log(product);
 
     const getData = async () => {
         const data = await getProducts();
@@ -36,9 +35,13 @@ const ViewCard = ({ product, onDelete, onUpdate }) => {
     };
 
     const handleAddToCart = async () => {
-        await addToCart(product);
-        handleStock();
-        getData();
+        if (stock === "Out of Stock") {
+            return alert("Product is out of stock");
+        } else {
+            await addToCart(product);
+            handleStock();
+            getData();
+        }
     };
 
     useEffect(() => {

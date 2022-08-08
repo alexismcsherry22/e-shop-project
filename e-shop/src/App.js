@@ -17,6 +17,7 @@ import ViewCard from "./container/ViewCard";
 
 const App = () => {
     const [products, setProducts] = useState([]);
+    const [cartItems, setCartItems] = useState([]);
 
     const getData = async () => {
         const data = await getProducts();
@@ -52,10 +53,11 @@ const App = () => {
                     {products.map((product, index) => {
                         return (
                             <Route
-                                path="/store/:productId"
+                                key={index}
+                                path={`/store/${product.id}`}
                                 element={
                                     <ViewCard
-                                        key={product.id}
+                                        key={index}
                                         product={product}
                                         onUpdate={handleUpdate}
                                         onDelete={handleDelete}
@@ -64,7 +66,6 @@ const App = () => {
                             />
                         );
                     })}
-                    {/* <Route path="/store/:productId" element={<ViewCard />} /> */}
                     <Route path="/cart" element={<Cart />} />
                 </Routes>
             </BrowserRouter>

@@ -39,12 +39,6 @@ export const getProducts = async () => {
     return data;
 };
 
-export const getProductById = (id) => {
-    const product = firestore.collection("products").doc(id).get();
-
-    return product;
-};
-
 export const updateProducts = async (id, record) => {
     const collectionRef = firestore.collection("products");
 
@@ -62,6 +56,15 @@ export const deleteProduct = async (id) => {
 export const addToCart = async (record) => {
     const collectionRef = firestore.collection("cart");
 
+    const querySnap = await collectionRef.get();
+
+    const documents = querySnap.docs;
+
+    documents.forEach((doc) => {
+        if (record.id === doc.id) return;
+    });
+    // if (record.id === collectionRef.doc(record.id)) return;
+
     await collectionRef.add(record);
 };
 
@@ -73,7 +76,7 @@ export const getCart = async () => {
     const documents = querySnap.docs;
 
     const data = documents.map((doc) => {
-        return { id: doc.id, ...doc.data() };
+        return { id1: doc.id, ...doc.data() };
     });
 
     return data;
@@ -88,6 +91,7 @@ export const updateCart = async (id, record) => {
 
 export const deleteCartItem = async (id) => {
     const collectionRef = firestore.collection("cart");
+    console.log(id);
 
     const docRef = collectionRef.doc(id);
     await docRef.delete();

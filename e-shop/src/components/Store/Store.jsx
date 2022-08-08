@@ -7,9 +7,9 @@ const Store = ({ products }) => {
         <div>
             <div className={styles.Store__Carousel}>
                 <Carousel>
-                    {products.slice(0, 5).map((product) => {
+                    {products.slice(0, 5).map((product, index) => {
                         return (
-                            <CarouselItem>
+                            <CarouselItem key={index}>
                                 <img
                                     className={styles.Store__Carousel__Image}
                                     src={product.image}
