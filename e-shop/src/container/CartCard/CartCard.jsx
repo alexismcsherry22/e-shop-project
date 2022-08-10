@@ -6,16 +6,19 @@ import { useEffect, useState } from "react";
 const CartCard = ({ item, onChange, onDelete }) => {
     const [qty, setQty] = useState(1);
 
+    //when the quantity is changed, update the cart item in the database
     useEffect(() => {
         onChange({
             ...item,
-            quantity: qty,
+            count: qty,
         });
         if (qty <= 0) {
             handleDelete();
         }
     }, [qty]);
 
+    //Delete with id1 because when pushed from products database to the cart database
+    //id1 is the document id and the normal id is the field id
     const handleDelete = () => {
         onDelete(item.id1);
     };

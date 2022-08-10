@@ -1,6 +1,7 @@
 import styles from "./Carousel.module.scss";
 import React, { useEffect, useState } from "react";
 
+//CarouselItem is used to store each individual image used in the carousel
 export const CarouselItem = ({ children, width }) => {
     return (
         <div className={styles.Carousel__item} style={{ width: width }}>
@@ -9,10 +10,14 @@ export const CarouselItem = ({ children, width }) => {
     );
 };
 
+//Used to make the carousel function both automatically and by selectables
 const Carousel = ({ children }) => {
+    //activeIndex refers to the number that the carousel is on based on the paused state
     const [activeIndex, setActiveIndex] = useState(0);
     const [paused, setPaused] = useState(false);
 
+    //updateIndex has checks for if there is an CarouselItems are inside the Carousel
+    //And decides the new index based on if it has any objects present
     const updateIndex = (newIndex) => {
         if (newIndex < 0) {
             newIndex = React.Children.count(children) - 1;
@@ -23,6 +28,8 @@ const Carousel = ({ children }) => {
         setActiveIndex(newIndex);
     };
 
+    //Checks if the Carousel has been "paused" and if not rotates the activeIndex every 2 seconds and
+    //resets the interval value after those activeIndex is updated
     useEffect(() => {
         const interval = setInterval(() => {
             if (!paused) {
@@ -39,6 +46,7 @@ const Carousel = ({ children }) => {
     return (
         <div
             className={styles.Carousel}
+            //Checks and sets the paused bool whenever the mouse enters and leaves the carousel
             onMouseEnter={() => setPaused(true)}
             onMouseLeave={() => setPaused(false)}
         >

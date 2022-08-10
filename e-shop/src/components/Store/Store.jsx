@@ -7,6 +7,8 @@ const Store = ({ products }) => {
         <div>
             <div className={styles.Store__Carousel}>
                 <Carousel>
+                    {/* Uses .slice to grab the first 5 indexes in the products array and creates 
+                        a carousel item for each */}
                     {products.slice(0, 5).map((product, index) => {
                         return (
                             <CarouselItem key={index}>

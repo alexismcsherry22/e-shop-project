@@ -16,26 +16,29 @@ import Cart from "./components/Cart";
 import ViewCard from "./container/ViewCard";
 
 const App = () => {
+    //useState to get and set the database in firestore and make use of those objects
     const [products, setProducts] = useState([]);
-    const [cartItems, setCartItems] = useState([]);
 
+    // get the products from the database and set them as the products
     const getData = async () => {
         const data = await getProducts();
         setProducts(data);
     };
 
+    // whenever a piece of document data is changed, update the document
     const handleUpdate = async (newRecord) => {
         const { id, ...record } = newRecord;
         await updateProducts(id, record);
         getData();
     };
 
-    //Need logic to remove the item when the stock is gone
+    // Delete the product based on certain conditions
     const handleDelete = async (id) => {
         await deleteProduct(id);
         getData();
     };
 
+    // when the page loads get the database data
     useEffect(() => {
         getData();
     }, []);
@@ -50,6 +53,7 @@ const App = () => {
                         path="/store"
                         element={<Store products={products} />}
                     />
+                    {/* map the products array so each product has its own unique page */}
                     {products.map((product, index) => {
                         return (
                             <Route

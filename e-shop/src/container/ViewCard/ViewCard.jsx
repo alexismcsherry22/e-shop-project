@@ -8,6 +8,7 @@ const ViewCard = ({ product, onDelete, onUpdate }) => {
     const [stock, setStock] = useState(product.rating.count);
     const [favourite, setFavourite] = useState(product.favourited);
 
+    //changes the stock value when a product is added to the cart
     const handleStock = () => {
         if (stock <= 0) {
             setStock("Out of Stock");
@@ -17,10 +18,12 @@ const ViewCard = ({ product, onDelete, onUpdate }) => {
         }
     };
 
+    //Used on a favourited button to change states of a product as favourited or not
     const handleFavourite = () => {
         setFavourite(!favourite);
     };
 
+    //Update the product in the database when either the stock or favourite values change
     useEffect(() => {
         onUpdate({
             ...product,
@@ -34,6 +37,8 @@ const ViewCard = ({ product, onDelete, onUpdate }) => {
         setProducts(data);
     };
 
+    //Used on the add to cart button to update the cart database or
+    //if the item is out of stock alert the user that the product is out of stock
     const handleAddToCart = async () => {
         if (stock === "Out of Stock") {
             return alert("Product is out of stock");

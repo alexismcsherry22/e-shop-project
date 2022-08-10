@@ -17,6 +17,7 @@ const Home = () => {
                     Go to the Store
                 </NavLink>
             </div>
+            {/* This button is commented as it was used to fill the database with data */}
             {/* <button onClick={seedProducts}>Seed Products</button> */}
         </div>
     );

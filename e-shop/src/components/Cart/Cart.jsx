@@ -3,10 +3,10 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { deleteCartItem, getCart, updateCart } from "../../services/server";
 import styles from "./Cart.module.scss";
-import Quantity from "../Quantity";
 import CartCard from "../../container/CartCard/CartCard";
 
 const Cart = () => {
+    //Get and Set states for the cart database as an array
     const [cartItems, setCartItems] = useState([]);
 
     const getData = async () => {

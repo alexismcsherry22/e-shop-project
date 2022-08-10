@@ -10,6 +10,7 @@ export const createProduct = async (record) => {
     await collectionRef.add(record);
 };
 
+//Used to push products into an empty database
 export const seedProducts = async () => {
     const collectionRef = firestore.collection("products");
 
@@ -25,6 +26,7 @@ export const seedProducts = async () => {
     await Promise.all(promises);
 };
 
+//Used to get all the products from the database
 export const getProducts = async () => {
     const collectionRef = firestore.collection("products");
 
@@ -39,6 +41,7 @@ export const getProducts = async () => {
     return data;
 };
 
+//Used when needing to update a document in the database
 export const updateProducts = async (id, record) => {
     const collectionRef = firestore.collection("products");
 
@@ -46,6 +49,7 @@ export const updateProducts = async (id, record) => {
     await docRef.update(record);
 };
 
+//Delete a document given a condition is fulfilled
 export const deleteProduct = async (id) => {
     const collectionRef = firestore.collection("products");
 
@@ -53,6 +57,7 @@ export const deleteProduct = async (id) => {
     await docRef.delete();
 };
 
+//Used to add items from products database to do cart database
 export const addToCart = async (record) => {
     const collectionRef = firestore.collection("cart");
 
@@ -68,6 +73,7 @@ export const addToCart = async (record) => {
     await collectionRef.add(record);
 };
 
+//Used to get all the items in the cart database
 export const getCart = async () => {
     const collectionRef = firestore.collection("cart");
 
@@ -82,6 +88,7 @@ export const getCart = async () => {
     return data;
 };
 
+//Used to update any documents in the cart that has value changes
 export const updateCart = async (id, record) => {
     const collectionRef = firestore.collection("cart");
 
@@ -89,6 +96,7 @@ export const updateCart = async (id, record) => {
     await docRef.update(record);
 };
 
+//Used to delete a cart item document given a condition is met
 export const deleteCartItem = async (id) => {
     const collectionRef = firestore.collection("cart");
     console.log(id);

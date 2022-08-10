@@ -1,8 +1,7 @@
 import styles from "./Card.module.scss";
 import { NavLink } from "react-router-dom";
-import { useContext } from "react";
-import { SearchContext } from "../../context/SearchContext";
 
+//Used to assign products to a card with an image and a title as a link to a product page
 const Card = ({ product }) => {
     return (
         <div className={styles.Card}>
